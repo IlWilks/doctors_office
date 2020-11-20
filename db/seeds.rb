@@ -9,17 +9,24 @@
 
 doctors = []
 patients = []
-appointments = ["morning", "afternoon", "evening"]
+appointment_time = ["morning", "afternoon", "evening"]
 
-10.times do |i|
- patients << Patient.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
-end
+2.times do
+  doctor = doctor.create(
+    name: Faker::Games::Pokemon.name
+  )
+ 
+  3.times do 
+    patient = Patient.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name
+    )
 
-3.times do |i|
-  doctors << Doctor.create(name: Faker::Games::Pokemon.name)
-end
-
-doctors.each do |doctor|
-  doctor.appointments.create(time: appointments.sample, patient_id: patients.sample.id)
+    Appointment.create(
+      time: appointment_time.sample,
+      doctor_id: doctor.id,
+      patient_id: patient.id
+    )
+  end
 end
 

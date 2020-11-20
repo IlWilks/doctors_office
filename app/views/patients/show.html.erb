@@ -1,4 +1,10 @@
 <h1><%=@patient.full_name%></h1>
-<p>Show appointment stuff here </p>
+<ul>
+  <% @patient.doctors.each do |doctor| %>
+    <li>
+      <%= link_to "Appointment with Dr. #{doctor.name}", doctor %>
+    </li>
+  <% end %>
+</ul>
 <p><%= link_to "Delete Patient", @patient, method: :delete%></p>
 <p><%=link_to "Back", patients_path%></p>
