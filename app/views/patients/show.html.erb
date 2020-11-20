@@ -1,3 +1,4 @@
 <h1><%=@patient.full_name%></h1>
 <p>Show appointment stuff here </p>
+<p><%= link_to "Delete Patient", @patient, method: :delete%></p>
 <p><%=link_to "Back", patients_path%></p>
