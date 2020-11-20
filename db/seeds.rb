@@ -7,16 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-doctors = []
-patients = []
 appointment_time = ["morning", "afternoon", "evening"]
 
-2.times do
-  doctor = doctor.create(
+3.times do
+  doctor = Doctor.create(
     name: Faker::Games::Pokemon.name
   )
  
-  3.times do 
+  4.times do 
     patient = Patient.create(
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name
